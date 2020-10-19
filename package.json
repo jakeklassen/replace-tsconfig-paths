@@ -10,6 +10,10 @@
   ],
   "author": "Jake Klassen",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jakeklassen/replace-tsconfig-paths"
+  },
   "scripts": {
     "prebuild": "rm -rf dist",
     "build": "etsc",
