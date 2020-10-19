@@ -3,6 +3,7 @@
 import { replaceInFile } from 'replace-in-file';
 import yargs from 'yargs';
 import { Transformer } from './lib/replace-in-file-transformer';
+import pkg from '../package.json';
 
 const args = yargs.options({
   project: {
@@ -24,6 +25,7 @@ const args = yargs.options({
 const { project, config } = args;
 
 async function main() {
+  console.time(pkg.name);
   const transformer = new Transformer(project, config);
 
   console.info(`Matched on ${transformer.files.length} files`);
@@ -34,7 +36,7 @@ async function main() {
     to: (...args: string[]) => transformer.transform(...args),
   });
 
-  console.info('Finished');
+  console.timeEnd(pkg.name);
 }
 
 main();
