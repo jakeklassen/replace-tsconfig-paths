@@ -9,6 +9,7 @@ const args = yargs.options({
     type: 'string',
     demandOption: true,
     alias: 'p',
+    default: '.',
     description: 'Path to folder containing tsconfig',
   },
   config: {
