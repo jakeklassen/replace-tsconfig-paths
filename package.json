@@ -1,8 +1,13 @@
 {
   "name": "replace-tsconfig-paths",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/index.js",
-  "bin": "dist/index.js",
+  "bin": {
+    "replace-tsconfig-paths": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
   "author": "Jake Klassen",
   "license": "MIT",
   "scripts": {
