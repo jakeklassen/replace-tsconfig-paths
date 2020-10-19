@@ -7,7 +7,7 @@ import { Transformer } from './lib/replace-in-file-transformer';
 const args = yargs.options({
   project: {
     type: 'string',
-    demandOption: true,
+    demandOption: false,
     alias: 'p',
     default: '.',
     description: 'Path to folder containing tsconfig',
