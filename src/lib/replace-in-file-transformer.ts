@@ -80,6 +80,11 @@ export class Transformer {
           relativeRequire = `./${relativeRequire}`;
         }
 
+        // If the lookup path segment is not part of the filePath, remove it
+        if (file.includes(lookup) === false) {
+          relativeRequire = relativeRequire.replace(`${lookup}/`, '');
+        }
+
         const newRequire = `require('${relativeRequire}')`;
 
         return newRequire;
