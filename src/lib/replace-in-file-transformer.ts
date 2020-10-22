@@ -40,7 +40,7 @@ export class Transformer {
 
     for (const [alias, lookups] of Object.entries(paths)) {
       this.aliases[alias.replace('/*', '/.*')] = lookups.map((lookup) =>
-        lookup.replace('/*', ''),
+        lookup.replace('/*', '').replace('*', '.'),
       );
     }
 
@@ -78,6 +78,12 @@ export class Transformer {
 
         if (relativeRequire.match(/^\w/) != null) {
           relativeRequire = `./${relativeRequire}`;
+        }
+
+        if (
+          !fs.existsSync(path.resolve(path.join(this.absoluteOutDir, lookup)))
+        ) {
+          relativeRequire = relativeRequire.replace(`${lookup}/`, '');
         }
 
         const newRequire = `require('${relativeRequire}')`;
