@@ -1,6 +1,6 @@
 {
   "name": "replace-tsconfig-paths",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "main": "dist/index.js",
   "bin": {
     "replace-tsconfig-paths": "dist/index.js"
